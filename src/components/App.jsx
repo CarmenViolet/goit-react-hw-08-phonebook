@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import css from "./App.module.css"
 
 import ContactForm from './ContactForm';
 import Filter from './Filter';
@@ -17,20 +18,23 @@ export class App extends Component {
   };
 
   formSubmitHandler = (data) => {
-    console.log(data);
-
     const newUser = {
       ...data, 
       id: nanoid()
-    }
+    };
 
-    this.setState(prevState => ({
+    this.contactCheck(newUser.name) ? alert(`${newUser.name} is already in contacts!`) : this.setState(prevState => ({
       contacts: [...prevState.contacts, newUser]
-    })
-  )};
+    }))
+    
+  };
+  
+  contactCheck = (newUser) => {
+    const {contacts} = this.state;
+    return contacts.some(contact => contact.name === newUser)
+  }
 
   onFilter = (event) => {
-    console.log(event);
     this.setState({filter: event.target.value})
   };
 
@@ -46,14 +50,13 @@ export class App extends Component {
 
     const normalizedFilter = filter.toLowerCase();
     const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter))
-    console.log(filteredContacts);
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <div className={css.container}>
+        <h1 className={css.container__title}>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler}/>
 
-        <h2>Contacts</h2>
-        <Filter value={filter} onFilter={this.onFilter}/>
+        <h2 className={css.contacts__title}>Contacts</h2>
+        <Filter filter={filter} onFilter={this.onFilter}/>
         <ContactList contacts={filteredContacts} 
         deleteButton={this.deleteContact}/>
       </div>
