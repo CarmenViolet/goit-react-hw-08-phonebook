@@ -37,11 +37,13 @@ class ContactForm extends Component {
           <label>
             Name
             <input
+            className={css.form__input}
               id={nanoid()}
               onChange={this.handleNameInput}
               value={name}
               type="text"
               name="name"
+              placeholder="Enter your name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
@@ -51,10 +53,12 @@ class ContactForm extends Component {
           <label>
             Number
             <input
+            className={css.form__input}
               id={nanoid()}
               onChange={this.handleNameInput}
               type="tel"
               name="number"
+              placeholder="Enter your phone number"
               value={number}
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

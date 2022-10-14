@@ -2,6 +2,15 @@
     display: flex;
 }
 
+.form__input {
+  font-size: 13px;
+  color: grey;
+}
+
+.form__input:focus {
+  scale: 1.1;
+}
+
 .add__button {
       background-color: #fff;
       border: 1px solid #d5d9d9;
