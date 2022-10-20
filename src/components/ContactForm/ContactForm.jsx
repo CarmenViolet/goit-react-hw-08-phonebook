@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 
 import css from './ContactForm.module.css';
 
-const ContactForm = ({formSubmitHandler}) => {
+const ContactForm = ({ formSubmitHandler }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -23,11 +23,10 @@ const ContactForm = ({formSubmitHandler}) => {
   const onSubmit = event => {
     event.preventDefault();
 
-    formSubmitHandler({name, number});
+    formSubmitHandler({ name, number });
 
     reset();
   };
-
 
   const reset = () => {
     setName('');
