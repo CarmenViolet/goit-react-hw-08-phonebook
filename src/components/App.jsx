@@ -15,8 +15,8 @@ const CONTACT_LIST = [
 
 export const App = () => {
   const [filter, setFilter] = useState('');
-  const [contacts, setContacts] = useState(() =>
-    JSON.parse(window.localStorage.getItem('key'))
+  const [contacts, setContacts] = useState(
+    () => JSON.parse(window.localStorage.getItem('key')) || []
   );
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export const App = () => {
   return (
     <div className={css.container}>
       <h1 className={css.container__title}>Phonebook</h1>
-      <ContactForm onSubmit={formSubmitHandler} />
+      <ContactForm formSubmitHandler={formSubmitHandler} />
 
       <h2 className={css.contacts__title}>Contacts</h2>
       <Filter filter={filter} onFilter={onFilter} />
