@@ -15,16 +15,12 @@ const CONTACT_LIST = [
 
 export const App = () => {
   const [filter, setFilter] = useState('');
-  const [contacts, setContacts] = useState(CONTACT_LIST);
+  const [contacts, setContacts] = useState(() =>
+    JSON.parse(window.localStorage.getItem('key'))
+  );
 
-  // useEffect(() => {
-  //   const contacts = localStorage.getItem('contacts');
-  //   if (contacts) {
-  //     setContacts(JSON.parse(contacts));
-  //   }
-  // }, []);
   useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
+    window.localStorage.setItem('key', JSON.stringify(contacts));
   }, [contacts]);
 
   const formSubmitHandler = data => {
