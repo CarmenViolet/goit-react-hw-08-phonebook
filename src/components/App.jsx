@@ -57,7 +57,7 @@ export const App = () => {
       <ContactForm formSubmitHandler={formSubmitHandler} />
 
       <h2 className={css.contacts__title}>Contacts</h2>
-      <Filter onFilter={onFilter} />
+      <Filter filter={filter} onFilter={onFilter} />
       <ContactList contacts={filteredContacts} deleteButton={deleteContact} />
     </div>
   );
