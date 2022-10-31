@@ -5,11 +5,11 @@ const ContactList = ({ contacts, deleteButton }) => {
   return (
     <>
       <ul className={css.contact__list}>
-        {contacts.map(({ id, name, number }) => {
+        {contacts.map(({ id, name, phone }) => {
           return (
             <li className={css.contact} key={id}>
               <span className={css.contact__name}>
-                {name} {number}
+                {name} {phone}
               </span>
               <button
                 className={css.delete__button}

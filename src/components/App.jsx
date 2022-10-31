@@ -17,6 +17,7 @@ export const App = () => {
   const isLoading = useSelector(selectIsLoading);
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
+  console.log(filter);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -45,9 +46,8 @@ export const App = () => {
     return dispatch(deleteContacts(contactId));
   };
 
-  const normalizedFilter = filter.toLowerCase();
   const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizedFilter)
+    contact.name.toLowerCase()
   );
 
   return (
