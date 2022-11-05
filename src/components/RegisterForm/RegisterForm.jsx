@@ -1,4 +1,4 @@
-import { register } from './redux/auth/authOperations';
+import { register } from 'redux/auth/authOperations';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -63,6 +63,8 @@ export const RegisterForm = () => {
             onChange={handleInput}
           />
         </label>
+
+        <button type="submit">Submit</button>
       </form>
     </>
   );
